@@ -5,6 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   quality-and-build:
@@ -40,6 +41,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # === ESTO ES LO QUE FALTABA ===
+      - name: 📤 Subir artefacto para GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist # La carpeta que genera Astro por defecto
+
   deploy:
     name: Despliegue a GitHub Pages
     needs: quality-and-build
@@ -53,6 +60,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: ⚙️ Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
       - name: 🚀 Desplegar a GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
