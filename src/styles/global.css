@@ -12,12 +12,22 @@
     --bg-main: #f2f1ec;
     --bg-muted: #eae9e1;
     --border-main: #171717;
+    /* Mermaid Colors */
+    --mermaid-node-bg: #f1f5f9;
+    --mermaid-node-border: #171717;
+    --mermaid-node-text: #0f172a;
+    --mermaid-line-color: #64748b;
 }
 html.dark {
     --text-main: #f2f1ec;
     --bg-main: #171717;
     --bg-muted: #242424;
     --border-main: #f2f1ec;
+    /* Mermaid Colors Dark */
+    --mermaid-node-bg: #1e293b;
+    --mermaid-node-border: #f2f1ec;
+    --mermaid-node-text: #f8fafc;
+    --mermaid-line-color: #94a3b8;
 }
 
 /* Cyan */

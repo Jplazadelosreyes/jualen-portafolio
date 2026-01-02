@@ -1,62 +1,56 @@
 ---
-title: CryptoTrader - Cryptocurrency Portfolio Manager
-description: CryptoTrader Dashboard is a comprehensive web application designed to empower cryptocurrency enthusiasts with tools to manage and optimize their digital asset portfolios.
-publishDate: 'Jan 10 2024'
+title: Arquitectura de Inteligencia de Datos para Cumplimiento Legal (Audit-Ready)
+description: Desarrollo de un motor de cálculo avanzado en PostgreSQL para automatizar la consolidación de pagos, leyes sociales y cumplimiento de contratistas en tiempo real.
+publishDate: 'Jun 28 2025'
 isFeatured: true
 seo:
   image:
-    src: '../../assets/images/project-7.jpg'
+    src: '../../assets/images/project-1.jpg'
 ---
 
-![Project preview](../../assets/images/project-7.jpg)
+![Análisis de Datos Avanzado](../../assets/images/project-1.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Nota:** Este caso de estudio documenta una solución real implementada para optimizar la gestión financiera y legal en un entorno B2B SaaS.
 
-**Project Overview:**
-CryptoTrader Dashboard is a comprehensive web application designed to empower cryptocurrency enthusiasts with tools to manage and optimize their digital asset portfolios. By providing real-time market data, analytics, and portfolio tracking, the dashboard offers a seamless experience for users to monitor and enhance their cryptocurrency investments.
+## Resumen del Proyecto
 
-## Objectives
+El sistema original carecía de una forma consolidada de verificar si los subcontratistas estaban al día con sus obligaciones legales (nóminas, F30, leyes sociales) antes de autorizar pagos. La información estaba dispersa en múltiples tablas y microservicios, lo que generaba un alto riesgo legal y horas de trabajo manual.
 
-1. Develop a user-friendly and feature-rich dashboard that consolidates real-time data from various cryptocurrency exchanges.
-2. Provide tools for users to analyze market trends, track their portfolio performance, and make informed investment decisions.
-3. Create a secure and efficient platform that ensures users have a holistic view of their cryptocurrency holdings.
+Desarrollé un **motor de cumplimiento dinámico** que actúa como una "fuente de verdad única", permitiendo a los directores de la empresa y a los clientes finales tomar decisiones basadas en datos exactos y actualizados.
 
-## Features
+## Objetivos
 
-1. **Multi-Exchange Integration:**
+1. Consolidar data dispersa de trabajadores, empresas y documentos legales en un solo reporte maestro.
+2. Automatizar el cálculo de porcentajes de cumplimiento basado en reglas de negocio complejas.
+3. Reducir a cero el error humano en la validación de documentación necesaria para la liberación de pagos.
 
-- CryptoTrader Dashboard aggregates data from multiple cryptocurrency exchanges, allowing users to view their entire portfolio in one centralized location.
-- Real-time updates provide the latest market prices, trading volumes, and order book data.
+## Características Principales
 
-2. **Portfolio Analytics:**
+1. **Motor de Consultas de Alta Complejidad:**
+- Uso intensivo de **Common Table Expressions (CTEs)** para segmentar la lógica de negocio (períodos, obligaciones, previsiones y liquidaciones).
+- Implementación de lógica condicional avanzada para detectar discrepancias entre trabajadores activos y documentos cargados.
 
-- Users can analyze their portfolio's performance through interactive charts and graphs.
-- The dashboard offers insights into historical performance, asset allocation, and profit/loss over time.
+2. **Integración de Flujo de Datos (BI):**
+- Conexión del motor SQL con **Make (Integromat)** para la exportación automatizada.
+- Visualización de resultados en **Looker Studio**, permitiendo filtros dinámicos por cliente, área y gerencia.
 
-3. **Risk Management Tools:**
+3. **Escalabilidad y Rendimiento:**
+- Optimización de la query mediante el uso de `FILTER`, `UNNEST` y `CROSS JOIN` para manejar grandes volúmenes de registros sin degradar el rendimiento del clúster.
 
-- Advanced risk management tools help users assess the volatility and potential risks associated with their cryptocurrency investments.
-- Users receive alerts for significant market fluctuations or changes in their portfolio value.
+4. **Validación Automática de Documentación:**
+- El sistema detecta automáticamente si faltan archivos críticos (F30-1, Previred, Libros de Remuneraciones) según el tipo de empresa y período vigente.
 
-4. **Automated Transaction Tracking:**
+## Stack Tecnológico
 
-- The dashboard automatically tracks and records users' cryptocurrency transactions, simplifying the process of updating and managing portfolios.
-- Users can categorize transactions, add notes, and maintain a comprehensive transaction history.
+- **Base de Datos:** PostgreSQL (Nivel Avanzado).
+- **Automatización:** Make (Integromat).
+- **Visualización:** Looker Studio (Google Data Studio).
+- **Infraestructura:** DigitalOcean Managed Databases.
 
-5. **News and Market Insights:**
+## Resultado
 
-- A dedicated section provides real-time news and market insights relevant to users' cryptocurrency holdings.
-- Users can stay informed about market trends, regulatory developments, and news affecting their investment decisions.
+La implementación de este motor transformó la operación de la empresa. Se eliminaron las revisiones manuales que tomaban días, permitiendo que el equipo de soporte y finanzas se enfoque en excepciones reales. La confianza del cliente aumentó significativamente al disponer de un tablero de control transparente que garantiza que cada pago realizado cumple con la normativa legal vigente.
 
-## Technology Stack
 
-- Frontend: React for a responsive and interactive user interface.
-- Backend: Django for server-side logic and API integration.
-- Database: PostgreSQL for efficient storage and retrieval of portfolio and market data.
-- API Integration: Integration with cryptocurrency exchange APIs for real-time market data.
 
-## Outcome
-
-CryptoTrader Dashboard has become a trusted companion for cryptocurrency investors, offering a consolidated and user-friendly platform for managing their portfolios. The robust analytics, real-time market data, and risk management tools empower users to make informed decisions and navigate the dynamic world of cryptocurrency with confidence.
-
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+---

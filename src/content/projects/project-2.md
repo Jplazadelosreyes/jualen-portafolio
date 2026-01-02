@@ -1,64 +1,53 @@
 ---
-title: 'TimeWarp - Travel Agency Website'
-description: Explore the possibilities of time travel through an immersive website for a fictional travel agency, complete with dynamic destination timelines and interactive historical events.
-publishDate: 'Oct 2 2023'
+title: Integración Crítica B2B y Gestión de APIs (aplicación de control de acceso)
+description: Liderazgo en el rescate y despliegue de integraciones complejas con sistemas externos de control de asistencia para clientes corporativos.
+publishDate: 'Jun 28 2025'
 isFeatured: true
 seo:
   image:
-    src: '../../assets/images/project-2.jpg'
-    alt: Project preview
+    src: '../../assets/images/project-4.jpg'
 ---
 
-![Project preview](../../assets/images/project-2.jpg)
+![Integración de APIs y Sistemas Externos](../../assets/images/project-4.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Nota:** Este caso de estudio documenta la resolución de un requerimiento técnico urgente para la sincronización de datos biométricos entre plataformas.
 
-**Project Overview:**
-TimeWarp Travel Agency aims to redefine the travel experience by offering an innovative and immersive online platform that explores the concept of time travel. The website combines cutting-edge technology with captivating storytelling to provide users with a unique journey through time.
+## Resumen del Proyecto
 
-> Working with Ethan Donovan was a game-changer for our online presence. Their innovative solutions and attention to detail turned our vision into a reality. The website not only looks fantastic but also functions seamlessly. A true professional who exceeded our expectations!
+La plataforma requería una integración robusta con la aplicación de control de acceso (sistema de control de asistencia) para automatizar el flujo de datos de los trabajadores de nuestros clientes. El proyecto se encontraba en un punto crítico: la implementación inicial no cubría las nuevas funcionalidades exigidas y el cliente directo necesitaba la solución de forma inmediata para la toma de decisiones operativas.
 
-## Objectives
+Asumí el liderazgo del proceso, realizando una ingeniería inversa de la implementación previa y un estudio profundo de la documentación técnica de la API externa para garantizar una sincronización de datos precisa y escalable.
 
-1. Create a visually stunning and user-friendly website that captures the essence of time travel.
-2. Integrate interactive elements to engage users and make the experience memorable.
-3. Develop a responsive design to ensure a seamless user experience across various devices.
+## Objetivos
 
-## Features
+1. Re-arquitecturar la integración con la API de aplicación de control de acceso para dar soporte a nuevas funcionalidades de control de acceso.
+2. Asegurar la integridad de la data sincronizada entre ambos sistemas, eliminando discrepancias en los registros biométricos.
+3. Liderar la comunicación técnica entre el equipo de desarrollo y el cliente para restaurar la confianza en el producto.
 
-1. **Dynamic Destination Timelines:**
+## Desafíos y Soluciones
 
-- Users can explore destinations through dynamic timelines, showcasing significant historical events, cultural developments, and architectural milestones.
-- Interactive sliders allow users to navigate through different eras, providing a visual representation of the historical evolution of each location.
+1. **Análisis y Priorización de Crisis:**
+- Identifiqué que el cuello de botella residía en una mala comprensión de los endpoints de la API externa. Documenté el proceso completo y establecí una hoja de ruta de "necesidad urgente" para priorizar el desarrollo.
 
-2. **Interactive Historical Events:**
+2. **Colaboración Técnica Efectiva:**
+- Trabajé codo a codo con el desarrollador junior original y el equipo de implementación. Mi rol fue actuar como puente, facilitando la lógica de negocio y guiando la codificación para que se alineara con los requisitos del usuario final.
 
-- Users can click on specific points in the timeline to reveal detailed information about key historical events related to the chosen destination.
-- Rich multimedia content, including images, videos, and articles, provides a comprehensive understanding of each event.
+3. **Optimización del Consumo de API:**
+- Implementé una lógica de manejo de excepciones y reintentos para asegurar que, ante fallos en el servicio externo, nuestro sistema mantuviera la consistencia de los datos.
+- Mejoré el mapeo de datos entre los microservicios de nuestra plataforma de control de contratistas y el sistema externo.
 
-3. **Personalized Time Travel Planner:**
+4. **Gestión de Expectativas (TPM):**
+- Participé en reuniones directivas para explicar el avance técnico en lenguaje de negocio, asegurando que el cliente comprendiera los plazos y la solidez de la nueva solución implementada.
 
-- A personalized planner feature enables users to create their time travel itineraries by selecting specific eras and destinations.
-- The system suggests thematic experiences, such as attending historical events or meeting famous personalities.
+## Stack Tecnológico
 
-4. **Time-Port Virtual Reality Experience:**
+- **Integraciones:** REST APIs (Consumo y autenticación).
+- **Backend:** Node.js / PHP.
+- **Base de Datos:** PostgreSQL (Sincronización de registros).
+- **Gestión:** Technical Product Management (TPM) y Metodologías Ágiles.
 
-- For an extra layer of immersion, users can opt for the Time-Port VR experience, allowing them to virtually step into different time periods and explore the surroundings in 360 degrees.
+## Resultado
 
-5. **Chronicle Explorer Blog:**
+El rescate de la integración con aplicación de control de acceso fue un éxito rotundo. Logramos implementar las funcionalidades faltantes en tiempo récord, permitiendo al cliente automatizar el control de asistencia de miles de trabajadores. Esta intervención no solo salvó una cuenta clave para la empresa, sino que estableció un estándar de cómo abordar integraciones de terceros mediante una correcta comprensión de la documentación y una gestión de equipo coordinada.
 
-- A blog section, "Chronicle Explorer," offers in-depth articles and stories about various historical periods and their impact on the destinations featured on the platform.
-- Users can engage with the content, comment, and share their own historical insights.
-
-## Technology Stack
-
-- **Frontend:** [Astro.js](https://astro.build/) for a dynamic and responsive user interface and [Tailwind CSS](https://tailwindcss.com/) for styling.
-- **Backend:** Node.js for handling server-side logic and API integration.
-- **Database:** MongoDB for efficient storage and retrieval of historical data.
-- **VR Integration:** A-Frame framework for creating immersive virtual reality experiences.
-
-## Outcome
-
-The TimeWarp Travel Agency Website successfully brings the concept of time travel to life, providing users with a captivating and educational experience. The website not only serves as a travel planning tool but also as an interactive platform that encourages users to explore and appreciate the rich tapestry of human history.
-
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+[Diagram of API integration flow between the contractor control platform and third-party biometric services]

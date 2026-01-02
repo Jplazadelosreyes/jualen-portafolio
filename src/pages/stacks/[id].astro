@@ -1,0 +1,100 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import StackPreview from '../../components/StackPreview.astro';
+import Subscribe from '../../components/Subscribe.astro';
+import { sortItemsById } from '../../utils/data-utils';
+import { slugify } from '../../utils/common-utils';
+
+export async function getStaticPaths() {
+    const stacks = (await getCollection('stacks')).sort(sortItemsById);
+    const stackCount = stacks.length;
+    return stacks.map((stack, index) => ({
+        params: { id: stack.id },
+        props: {
+            stack,
+            prevStack: index !== 0 ? stacks[index - 1] : null,
+            nextStack: index + 1 !== stackCount ? stacks[index + 1] : null
+        }
+    }));
+}
+
+type Props = { stack: CollectionEntry<'stacks'>; prevStack: CollectionEntry<'stacks'>; nextStack: CollectionEntry<'stacks'> };
+
+const { href } = Astro.url;
+const { stack, prevStack, nextStack } = Astro.props;
+const { title, publishDate, updatedDate, excerpt, tags = [], seo } = stack.data;
+const { Content } = await render(stack);
+---
+
+<BaseLayout title={seo?.title ?? title} description={seo?.description ?? excerpt} image={seo?.image} pageType="article" showHeader={false}>
+    <article class="mb-16 sm:mb-24">
+        <header class="mb-8">
+            <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">{title}</h1>
+            <div class="mt-4 text-sm">
+                <FormattedDate date={publishDate} />
+                {
+                    updatedDate && (
+                        <>
+                            {' '}
+                            <span>
+                                (Actualizado el <FormattedDate date={updatedDate} />)
+                            </span>
+                        </>
+                    )
+                }
+            </div>
+        </header>
+        <div class="prose sm:prose-lg max-w-none">
+            <Content />
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-between gap-6 text-sm sm:mt-12 sm:text-base">
+            {
+                tags.length > 0 && (
+                    <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                        {tags.map((tag) => (
+                            <a class="text-main hover:underline" href={`/tags/${slugify(tag)}`}>
+                                #{tag}
+                            </a>
+                        ))}
+                    </div>
+                )
+            }
+            <Button class="copy-url-button" aria-label="Copy link" data-url={href} data-tooltip-default="Copiar enlace" data-tooltip-success="Copiado">Compartir</Button>
+        </div>
+    </article>
+    {
+        (prevStack || nextStack) && (
+            <div class="my-16 sm:my-24">
+                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Siguiente lectura</h2>
+                {nextStack && <StackPreview stack={nextStack} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {prevStack && <StackPreview stack={prevStack} class="mb-10 sm:mb-12" headingLevel="h3" />}
+            </div>
+        )
+    }
+    <Subscribe class="my-16 sm:my-24" />
+</BaseLayout>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const copyUrlButton = document.querySelector('.copy-url-button') as HTMLButtonElement;
+        copyUrlButton?.addEventListener('click', async () => {
+            await copyUrl(copyUrlButton);
+        });
+
+        async function copyUrl(button: HTMLButtonElement) {
+            const url = button.getAttribute('data-url') || '';
+            const label = button.innerText;
+
+            await navigator.clipboard.writeText(url);
+
+            button.innerText = 'Copied';
+
+            setTimeout(() => {
+                button.innerText = label;
+            }, 2500);
+        }
+    });
+</script>

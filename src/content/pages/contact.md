@@ -1,14 +1,21 @@
 ---
-title: Get in touch
+title: Contacto
 seo:
-  title: Contact
-  description: Get in touch through email or social media! Let me know how I can help.
+  title: Contacto | Juan Plaza de los Reyes
+  description: ¿Tienes un proyecto en mente o buscas un perfil Full Stack & DevOps en Barcelona? ¡Hablemos!
 ---
 
-Thank you for reaching out! Whether you have a question, a suggestion, or just want to share your thoughts, I'm all ears. Feel free to get in touch through any of the methods below:
+¡Gracias por tu interés! Siempre estoy abierto a discutir nuevas oportunidades, desafíos técnicos o simplemente charlar sobre el futuro del desarrollo de producto.
+
+Puedes contactarme a través de los siguientes canales:
 
 _Email:_
-Feel free to drop me an email at [example@example.com](mailto:example@example.com), and I'll do my best to respond as soon as possible.
+Envíame un correo directamente a **[tu-email@ejemplo.com]** y te responderé a la brevedad posible.
 
-_Social Media:_
-Connect with me on social media as well. Find me on [Twitter](https://twitter.com) or [LinkedIn](https://www.linkedin.com/).
+_Redes Profesionales:_
+Conectemos para compartir ideas y experiencias:
+* **[LinkedIn](https://www.linkedin.com/in/juan-plaza-de-los-reyes-014991133/)** (Donde estoy más activo profesionalmente)
+* **[GitHub](https://github.com/Jplazadelosreyes)** (Para revisar mis contribuciones y código)
+
+---
+_¡Espero saber de ti pronto!_

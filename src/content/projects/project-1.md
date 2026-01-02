@@ -1,66 +1,52 @@
 ---
-title: 'EcoBuddy: Sustainable Living App'
-description: EcoBuddy is a mobile app that gamifies sustainable living. Users can set eco-friendly goals, track their carbon footprint, and earn virtual rewards for adopting environmentally conscious habits.
-publishDate: 'Jan 02 2024'
+title: Optimización de Ciclo de Vida y GitFlow Estratégico
+description: Profesionalización de los procesos de despliegue mediante la implementación de estándares de GitFlow, mejorando la estabilidad de los lanzamientos a producción.
+publishDate: 'Jun 28 2025'
 seo:
   image:
-    src: '../../assets/images/project-1.jpg'
-    alt: Project preview
+    src: '../../assets/images/project-5.jpg'
 ---
 
-![Project preview](../../assets/images/project-1.jpg)
+![Calidad de Software y DevOps](../../assets/images/project-5.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Nota:** Este caso de estudio documenta la transición de un modelo de despliegue manual a un flujo de trabajo basado en estándares internacionales de ingeniería.
 
-**Project Overview:**
-EcoBuddy is a revolutionary mobile application designed to make sustainable living accessible, engaging, and rewarding. With a focus on gamification and real-world impact, EcoBuddy encourages users to adopt eco-friendly habits, reduce their carbon footprint, and contribute to a healthier planet.
+## Resumen del Proyecto
 
-## Objectives
+Al asumir el liderazgo del área de desarrollo, identifiqué que los despliegues a producción se realizaban de forma artesanal, utilizando *cherry-picking* manual y despliegues directos desde entornos locales. Este proceso generaba una alta probabilidad de error humano, dificultaba el seguimiento de versiones y hacía que los *rollbacks* ante incidentes fueran lentos y riesgosos.
 
-1. Develop a user-friendly mobile app that motivates individuals to adopt sustainable practices in their daily lives.
-2. Utilize gamification elements to make sustainable living fun and interactive.
-3. Provide educational resources and personalized challenges to empower users to make informed eco-conscious decisions.
+Implementé un modelo de **GitFlow robusto** y estandaricé la legibilidad del código, transformando la manera en que el equipo entrega valor y garantizando que cada versión en producción sea estable y trazable.
 
-## Features
+## Objetivos
 
-1. **EcoScore and Challenges:**
+1. Eliminar los despliegues manuales y desordenados para reducir el *downtime* por errores de integración.
+2. Establecer un entorno de **Staging** confiable que replique exactamente las condiciones de Producción.
+3. Agilizar la respuesta ante incidentes mediante la capacidad de revertir versiones de forma casi instantánea.
 
-- Users are assigned an EcoScore based on their sustainable activities and choices.
-- Daily and weekly challenges encourage users to adopt new habits and compete with friends or the community to earn EcoPoints.
+## Desafíos y Soluciones
 
-2. **Personalized Eco-Goals:**
+1. **Reestructuración del Flujo de Trabajo (GitFlow):**
+- Diseñé e implementé una jerarquía de ramas clara: `feature` -> `develop` (Staging) -> `master` (Production).
+- Introduje el uso de **Chore Releases** y etiquetas de versión para mantener un historial de cambios (Changelog) comprensible tanto para técnicos como para stakeholders.
 
-- Users can set and track personalized eco-goals, such as reducing plastic usage, conserving water, or choosing eco-friendly transportation.
-- The app provides tips and suggestions to help users achieve their goals.
+2. **Cultura de Revisión y Legibilidad:**
+- Fomenté la práctica de "Clean Code" y revisiones de código cruzadas. Esto no solo mejoró la calidad del software, sino que sirvió como una herramienta de aprendizaje continuo para los desarrolladores.
 
-3. **Green Rewards Marketplace:**
+3. **Optimización de Despliegues y Reversiones:**
+- Automatice el proceso de paso a producción mediante merges controlados. Si una funcionalidad presentaba un error crítico, el equipo ahora podía realizar un `revert` a una versión estable previa en minutos, minimizando el impacto en los usuarios finales.
 
-- EcoPoints earned through challenges and sustainable actions can be redeemed in a virtual Green Rewards Marketplace.
-- The marketplace offers discounts on eco-friendly products, services, and even contributions to environmental causes.
+4. **Mentoring y Adopción:**
+- Capacité al equipo en el uso de estas nuevas herramientas y flujos, explicando los beneficios de seguridad y orden que aporta el cumplimiento de estándares profesionales de Git.
 
-4. **Community Hub:**
+## Stack Tecnológico
 
-- A community feature allows users to connect, share their eco-friendly achievements, and inspire others.
-- Users can join local eco-groups, organize clean-up events, and collaborate on sustainability projects.
+- **Control de Versiones:** Git (GitHub / GitLab).
+- **Flujos de Trabajo:** GitFlow, Semantic Versioning.
+- **Entornos:** Staging, Production, Local Development.
+- **Metodología:** Code Reviews, Clean Code.
 
-5. **EcoEducator AI Assistant:**
+## Resultado
 
-- An AI-powered assistant, EcoEducator, provides personalized eco-tips, facts, and information based on users' preferences and habits.
-- Users can chat with EcoEducator for instant advice on sustainable living.
+La profesionalización del flujo de desarrollo tuvo un impacto inmediato: la tasa de errores en producción disminuyó drásticamente y la confianza del equipo al liberar nuevas funcionalidades aumentó. Ahora contamos con una línea de tiempo clara de la evolución del producto, permitiendo una escalabilidad ordenada y una capacidad de respuesta técnica que cumple con los estándares de las mejores empresas tecnológicas del sector.
 
-## Technology Stack
-
-- Frontend: React Native for cross-platform mobile app development.
-- Backend: Firebase for real-time data synchronization and user authentication.
-- Database: Firestore for scalable and flexible data storage.
-- AI Integration: Dialogflow for natural language processing and conversation with EcoEducator.
-
-## Outcome
-
-EcoBuddy has successfully created a community of environmentally conscious individuals who actively participate in sustainable living practices. The app not only educates and motivates users but also provides tangible rewards for their commitment to a greener lifestyle, fostering a positive impact on the environment.
-
-## Client Testimonial
-
-> We couldn't be happier with the results delivered by Ethan Donovan. From the initial concept discussions to the final product, their responsiveness and collaborative approach were impressive. Our startup's website now stands out, thanks to their creative input and commitment to excellence.
-
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+[Diagram of a professional GitFlow showing Feature branches, Staging environment, and Production Releases]

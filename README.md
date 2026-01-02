@@ -1,119 +1,59 @@
-# Dante - Astro & Tailwind CSS Theme by justgoodui.com
+# Dante - Enhanced Portfolio & Blog Theme 🚀
 
-Dante is a single-author blog and portfolio theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
+<p align="left">
+  <img src="https://github.com/Jplazadelosreyes/jualen-portafolio/actions/workflows/deploy.yml/badge.svg" alt="CI/CD Portafolio" />
+  <img src="https://img.shields.io/badge/Maintained%20with-Conventional%20Commits-10ADED?style=for-the-badge&logo=conventionalcommits&logoColor=white" alt="Conventional Commits" />
+</p>
 
-![Dante Astro.js Theme](public/dante-preview.jpg)
+Este repositorio es un **fork optimizado** del tema original [Dante](https://github.com/JustGoodUI/dante-astro-theme). Mi objetivo ha sido evolucionar un template minimalista hacia una plataforma técnica avanzada, integrando visualización de arquitecturas y flujos de CI/CD automatizados.
 
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JustGoodUI/dante-astro-theme)
+---
 
-Clicking the button above ☝️ will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
+## 🛠 Mejoras e Implementaciones (Mis Contribuciones)
 
-## Theme Features:
+### 📊 Visualización de Arquitecturas con Mermaid.js
+Integración nativa para documentar stacks tecnológicos de forma visual.
+- **Sincronización de Estilos**: Capa en `global.css` para soporte de modo oscuro/claro.
+- **Accesibilidad**: Contraste reforzado para legibilidad total.
 
-- ✅ Dark and light color mode
-- ✅ Hero section with bio
-- ✅ Portfolio collection
-- ✅ Pagination support
-- ✅ Post tags support
-- ✅ Subscription form
-- ✅ View transitions
-- ✅ Tailwind CSS
-- ✅ Mobile-first responsive layout
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-- ✅ Optimized images using Astro’s `Image` component
+### 🎨 Refactorización de Estilos con Tailwind CSS
+- **Modo Oscuro**: Optimización de variables de color.
+- **Tipografía**: Implementación de fuentes variables para mejorar el rendimiento.
 
-## Template Integrations
+### 🔄 Automatización y DevOps
+- **CI/CD Pipeline**: Validación y build automatizado con GitHub Actions.
+- **Contenedores**: Dockerización mediante Multi-stage builds.
+- **Calidad de Código**: Implementación de Linter (ESLint 9) y Conventional Commits.
 
-- @astrojs/tailwind - https://docs.astro.build/en/guides/integrations-guide/tailwind/
-- @astrojs/sitemap - https://docs.astro.build/en/guides/integrations-guide/sitemap/
-- @astrojs/mdx - https://docs.astro.build/en/guides/markdown-content/
-- @astrojs/rss - https://docs.astro.build/en/guides/rss/
+---
 
-## ⚙️ Configuration Notes
+## 💻 Mi Stack Tecnológico
 
-### `site-config.ts`
+| Área | Tecnologías |
+| :--- | :--- |
+| **Frontend** | ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white) ![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white) ![Vuetify](https://img.shields.io/badge/Vuetify-1867C0?style=flat-square&logo=vuetify&logoColor=white) ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
+| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![Postgres](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white) |
+| **DevOps** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![K8s](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) ![Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) ![DigitalOcean](https://img.shields.io/badge/DigitalOcean-0080FF?style=flat-square&logo=digitalocean&logoColor=white) |
 
-All site-wide data and theme options are stored in `src/data/site-config.ts`. It provides a single configuration object used throughout the theme for navigation, branding, hero content, social links, and more.
+---
 
-You can update this file to customize:
+## 🙏 Créditos y Agradecimientos
 
-- Site identity — title, description, avatar, subtitle, and default social share image
-- Navigation — header and footer navigation links
-- Social links — URLs for supported platforms
-- Hero section — title, text, image, and action buttons
-- Newsletter subscription — form settings suitable for Mailchimp, Formspree, ConvertKit, or other form-based providers. The form supports a custom action URL, configurable email and hidden fields, and an optional honeypot field for spam protection.
-- Pagination — posts per page for blog and projects listings
+- **Theme Original:** [Dante](https://github.com/JustGoodUI/dante-astro-theme) por [JustGoodUI](https://justgoodui.com/).
+- **Motor:** [Astro.js](https://astro.build/).
 
-Images can be referenced either as imports from `src/assets/` (for optimized Astro images) or as string paths from the `public/` directory.
+---
 
-### Images
+## ⚙️ Comandos
 
-The theme uses a `CustomImage` component that automatically displays images using Astro’s optimized `<Image />` or a standard `<img>` tag depending on the source.
+| Comando | Acción |
+| :--- | :--- |
+| `npm install` | Instala dependencias |
+| `npm run lint` | Ejecuta el linter (Calidad) |
+| `npm run build` | Genera el sitio estático |
+| `npm run release` | Genera Changelog y Tag de versión |
 
-- Content collection images (used in posts or pages) must be stored in `src/assets/` since they use Astro’s `image()` schema.
-- Site-config images (like the avatar, hero image, or social preview) can either be imported from `src/assets/` for optimization or referenced directly from `public/` if you prefer not to optimize them.
-
-## Project Structure
-
-Inside of Dante Astro theme, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── data/
-│   ├── icons/
-│   ├── layouts/
-│   ├── pages/
-│   ├── styles/
-│   ├── utils/
-│   ├── content.config.ts
-│   └── types.ts
-├── astro.config.mjs
-├── package.json
-├── README.md
-└── tsconfig.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro (`.astro`) components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## Astro.js Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## Want to learn more about Astro.js?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credits
-
-- Demo content generate with [Chat GPT](https://chat.openai.com/)
-- Images for demo content from [Unsplash](https://unsplash.com/)
-
-## Astro Themes by Just Good UI
-
-- [Ovidius](https://github.com/JustGoodUI/ovidius-astro-theme) is a free single author blog theme.
+---
 
 ## License
-
-Licensed under the [GPL-3.0](https://github.com/JustGoodUI/dante-astro-theme/blob/main/LICENSE) license.
+Licensed under [GPL-3.0](https://github.com/JustGoodUI/dante-astro-theme/blob/main/LICENSE).

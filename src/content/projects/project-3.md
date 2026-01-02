@@ -1,64 +1,50 @@
 ---
-title: 'RoboChef - AI Powered Cooking Guide'
-description: RoboChef Recipe Assistant is a groundbreaking mobile application that leverages artificial intelligence to redefine the cooking experience.
-publishDate: 'Oct 12 2023'
-isFeatured: true
+title: Liderazgo Técnico y Estrategia de Migración a Vue 3
+description: Gestión del ciclo de vida del producto y liderazgo en la transición tecnológica de Vue 2 a Vue 3 para asegurar la escalabilidad a largo plazo.
+publishDate: 'Jun 28 2025'
 seo:
   image:
     src: '../../assets/images/project-3.jpg'
 ---
 
-![Project preview](../../assets/images/project-3.jpg)
+![Liderazgo Técnico y Mentoring](../../assets/images/project-3.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Nota:** Este caso de estudio documenta mi rol híbrido como Product Manager y Tech Lead, coordinando la modernización del stack tecnológico de la compañía.
 
-**Project Overview:**
-RoboChef Recipe Assistant is a groundbreaking mobile application that leverages artificial intelligence to redefine the cooking experience. By combining machine learning with culinary expertise, RoboChef empowers users to explore a world of flavors, improve their cooking skills, and enjoy personalized recipe recommendations.
+## Resumen del Proyecto
 
-## Objectives
+Ante el fin del ciclo de vida oficial de Vue 2, asumí la responsabilidad de planificar y liderar la migración hacia **Vue 3**. Este proyecto no fue solo una actualización de dependencias, sino una reestructuración estratégica para mejorar el rendimiento de la plataforma y la mantenibilidad del código, asegurando que el sistema sea escalable frente a los nuevos requerimientos del negocio.
 
-1. Develop a user-friendly mobile app that utilizes AI to provide personalized recipe suggestions based on user preferences, dietary restrictions, and available ingredients.
-2. Create an interactive cooking guide that assists users with step-by-step instructions, cooking tips, and real-time assistance.
-3. Implement a smart learning system that refines recommendations over time, adapting to users' taste preferences and dietary changes.
+Como líder del área, mi enfoque estuvo en equilibrar la entrega de nuevas funcionalidades con la deuda técnica, garantizando que el equipo de desarrollo comprendiera no solo el *cómo*, sino el *por qué* detrás de cada cambio.
 
-## Features
+## Objetivos
 
-1. **AI-Powered Recipe Recommendations:**
+1. Liderar la transición arquitectónica hacia Vue 3 sin interrumpir la operación de los clientes actuales.
+2. Capacitar y mentorizar al equipo de desarrollo en las nuevas APIs (Composition API) y mejores prácticas.
+3. Reducir el tiempo de carga y mejorar la reactividad de la aplicación para optimizar la experiencia del usuario (UX).
 
-- RoboChef analyzes users' taste preferences, dietary restrictions, and ingredient availability to suggest personalized recipes.
-- Machine learning algorithms continuously learn from user interactions, refining recommendations for an increasingly tailored experience.
+## Desafíos y Soluciones
 
-2. **Ingredient Scanner and Inventory Management:**
+1. **Gestión de la Continuidad de Negocio:**
+- Diseñé un plan de migración incremental, permitiendo que las nuevas funcionalidades se construyeran bajo estándares modernos mientras se refactorizaba el núcleo del sistema de forma segura.
 
-- Users can scan their pantry and refrigerator using the app's built-in ingredient scanner.
-- RoboChef provides recipe suggestions based on available ingredients and helps users manage their inventory by suggesting recipes that utilize soon-to-expire items.
+2. **Capacitación y Feedback del Equipo:**
+- Implementé sesiones de capacitación técnica y revisiones de código (Code Reviews) enfocadas en la transferencia de conocimiento. Mi objetivo fue empoderar a los desarrolladores, proporcionando contexto sobre el impacto de su trabajo en el usuario final.
 
-3. **Step-by-Step Cooking Guide:**
+3. **Detección de Bugs y Estabilidad en Producción:**
+- Como puente entre el cliente y el desarrollo, utilicé mi profundo conocimiento del uso real de la app para identificar bugs críticos antes de que afectaran masivamente, guiando al equipo en la resolución precisa de incidentes.
 
-- Each recipe includes a detailed step-by-step cooking guide with interactive multimedia elements.
-- Users can watch video tutorials, view images, and receive real-time tips from RoboChef as they progress through each cooking stage.
+4. **Visión de Producto:**
+- Actué como consultor técnico en reuniones de alto nivel, traduciendo los requerimientos de los directores en tareas técnicas accionables y priorizando el backlog según el valor estratégico.
 
-4. **Nutritional Insights and Meal Planning:**
+## Stack Tecnológico
 
-- RoboChef provides nutritional information for each recipe, helping users make informed decisions about their meals.
-- The app offers meal planning features, allowing users to create weekly menus based on dietary goals and preferences.
+- **Frontend:** Vue.js 3 (Composition API), Vite, Tailwind CSS.
+- **Gestión:** Metodologías Ágiles, Product Management, Mentoring Técnico.
+- **Herramientas de Soporte:** Jira, Slack, Code Reviews en Git.
 
-5. **Voice-Activated Assistance:**
+> "Juan posee una capacidad excepcional para unir el rigor técnico con la visión estratégica. Su transición de desarrollador a líder de producto ha permitido que el equipo no solo escriba mejor código, sino que entienda el impacto real que cada línea tiene en nuestros usuarios y en el éxito del negocio."
 
-- Users can interact with RoboChef using voice commands for a hands-free cooking experience.
-- The AI assistant responds to queries, provides cooking tips, and adapts recipes based on user preferences.
+## Resultado
 
-## Technology Stack
-
-- Frontend: Flutter for a seamless cross-platform mobile app experience.
-- Backend: Django for handling server-side logic and API integration.
-- Database: PostgreSQL for efficient data storage and retrieval.
-- AI Integration: TensorFlow for machine learning models powering recipe recommendations.
-
-> Ethan Donovan possesses a rare blend of technical expertise and creative flair. They skillfully transformed our vague ideas into a visually stunning and highly functional website. The end result exceeded our expectations, and we continue to receive compliments on the design and user experience.
-
-## Outcome
-
-RoboChef Recipe Assistant has revolutionized the way users approach cooking, making it an enjoyable and educational experience. The AI-powered features not only simplify the cooking process but also contribute to users' culinary growth, creating a personalized and evolving cooking journey.
-
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+La migración a Vue 3 ha posicionado a la plataforma a la vanguardia tecnológica, permitiendo una integración más fluida con herramientas modernas y una reducción notable en los tiempos de mantenimiento. Al elevar los estándares de legibilidad y formación del equipo, logramos reducir la fricción en el desarrollo y aumentar la velocidad de entrega de soluciones, consolidando una cultura de excelencia técnica y compromiso con el producto.

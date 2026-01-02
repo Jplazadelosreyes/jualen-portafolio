@@ -1,0 +1,30 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Pagination from '../../components/Pagination.astro';
+import StackPreview from '../../components/StackPreview.astro';
+import Subscribe from '../../components/Subscribe.astro';
+import siteConfig from '../../data/site-config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sortItemsById } from '../../utils/data-utils';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const stacks = (await getCollection('stacks')).sort(sortItemsById);
+
+    return paginate(stacks, {
+        pageSize: siteConfig.stacksPerPage || 4
+    });
+}
+
+type Props = { page: Page<CollectionEntry<'stacks'>> };
+
+const { page } = Astro.props;
+const stacks = page.data;
+---
+
+<BaseLayout title="Stacks" description="Explora mi stack tecnológico" showHeader={false}>
+    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Stacks</h1>
+    {stacks.map((stack) => <StackPreview stack={stack} class="mb-10 sm:mb-12" />)}
+    <Pagination page={page} class="my-16 sm:my-24" />
+    <Subscribe class="my-16 sm:my-24" />
+</BaseLayout>

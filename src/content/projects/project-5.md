@@ -1,62 +1,52 @@
 ---
-title: 'PixelPerfect Art Gallery'
-description: PixelPerfect Art Gallery is an innovative online platform that transcends traditional art exhibition spaces.
-publishDate: 'Oct 25 2023'
-isFeatured: true
+title: Optimización de Infraestructura Cloud y Alta Disponibilidad
+description: Resolución de cuellos de botella críticos en producción mediante escalado de pods en Kubernetes y optimización de consultas en PostgreSQL.
+publishDate: 'Jun 28 2025'
 seo:
   image:
-    src: '../../assets/images/project-5.jpg'
+    src: '../../assets/images/project-2.jpg'
 ---
 
-![Project preview](../../assets/images/project-5.jpg)
+![Infraestructura y DevOps](../../assets/images/project-2.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Nota:** Este caso de estudio documenta una intervención técnica crítica realizada para garantizar la estabilidad de una plataforma SaaS con alta demanda de usuarios.
 
-**Project Overview:**
-PixelPerfect Art Gallery is an innovative online platform that transcends traditional art exhibition spaces. This web application is dedicated to showcasing and celebrating pixel art in the form of Non-Fungible Tokens (NFTs), providing artists with a digital canvas to display their unique creations while ensuring secure ownership through blockchain technology.
+## Resumen del Proyecto
 
-## Objectives
+Durante un periodo de alta carga, la plataforma experimentó degradación en los tiempos de respuesta, llegando a bloqueos intermitentes. Como encargado de la infraestructura, lideré un proceso de diagnóstico profundo que abarcó desde el código frontend y backend hasta el análisis de recursos en el clúster y la base de datos.
 
-1. Create an immersive online gallery experience specifically tailored for pixel art enthusiasts and NFT collectors.
-2. Utilize blockchain technology to authenticate and secure ownership of digital artworks, ensuring a transparent and tamper-proof art marketplace.
-3. Foster a community of digital artists and art collectors, providing a platform for collaboration, appreciation, and exchange.
+El resultado fue una reestructuración de la capacidad de cómputo y una optimización de la capa de datos que eliminó los tiempos de inactividad y mejoró la experiencia del usuario final.
 
-## Features
+## Objetivos
 
-1. **NFT Art Exhibition:**
+1. Identificar y eliminar cuellos de botella en el flujo de peticiones entre el frontend y el backend.
+2. Garantizar la estabilidad del sistema mediante el escalamiento eficiente de recursos en la nube.
+3. Implementar monitoreo proactivo para prevenir futuros incidentes de saturación de datos.
 
-- PixelPerfect features a curated exhibition of pixel art NFTs, showcasing a diverse range of styles, themes, and techniques.
-- Users can explore and appreciate the intricate details of each digital artwork in a visually stunning online gallery.
+## Desafíos y Soluciones
 
-2. **Blockchain Authentication:**
+1. **Diagnóstico Multicapa:**
+- Realicé una investigación integral utilizando logs de contenedores y métricas de base de datos, detectando una query de alta demanda que generaba bloqueos en cadena.
+- Identifiqué que la arquitectura original no distribuía correctamente la carga durante procesos masivos de inicio de mes.
 
-- Each pixel art piece is tokenized as an NFT on a blockchain, ensuring authenticity, provenance, and secure ownership.
-- Users can view the blockchain records to verify the origin and history of the digital artworks.
+2. **Escalamiento de Infraestructura (Kubernetes):**
+- Implementé un escalamiento horizontal del backend, configurando réplicas (3 pods) para asegurar la alta disponibilidad.
+- Ajusté el escalamiento vertical de los nodos en **DigitalOcean** para absorber picos de demanda sin degradar el rendimiento general.
 
-3. **Virtual Art Auctions:**
+3. **Optimización de Capa de Datos:**
+- Refactoricé la consulta SQL problemática, mejorando la estrategia de indexación y reduciendo el costo de ejecución en más de un 60%.
+- Implementé limpiezas automáticas de datos redundantes o "basura" que saturaban los procesos de monitoreo.
 
-- PixelPerfect hosts virtual art auctions, allowing users to bid on and acquire exclusive pixel art NFTs.
-- The auction platform provides a dynamic and engaging environment for art enthusiasts and collectors.
-
-4. **Community Collaboration Spaces:**
-
-- Dedicated community spaces allow artists to connect, collaborate, and showcase their creative process.
-- Users can discuss techniques, share insights, and even collaborate on pixel art projects within the PixelPerfect community.
-
-5. **Interactive Pixel Art Creation Workshop:**
-
-- PixelPerfect provides a virtual workshop where users can create their own pixel art and potentially tokenize their creations as NFTs.
-- Artists can share their works with the community or submit them for consideration in future exhibitions.
+4. **Monitoreo y Prevención:**
+- Establecí una ruta de actuación técnica (runbook) para incidentes, permitiendo al equipo responder con precisión ante anomalías en los despliegues.
 
 ## Technology Stack
 
-- Frontend: Angular for a dynamic and responsive user interface.
-- Backend: Node.js for handling server-side logic and API integration.
-- Database: Ethereum blockchain for storing NFT ownership and transaction details.
-- Smart Contracts: Solidity for developing blockchain smart contracts.
+- **Orquestación:** Kubernetes (Pods, Deployments, ReplicaSets).
+- **Cloud Provider:** DigitalOcean & AWS S3.
+- **Base de Datos:** PostgreSQL (Optimización de Query Plan).
+- **Frontend/Backend:** Vue.js y Node.js.
 
-## Outcome
+## Resultado
 
-PixelPerfect Art Gallery has successfully created a digital haven for pixel art enthusiasts, providing a secure and engaging platform for artists and collectors alike. The integration of blockchain technology ensures transparency and authenticity in the world of digital art, fostering a vibrant community that appreciates the uniqueness and creativity of pixel art NFTs.
-
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+La intervención no solo devolvió la estabilidad al sistema, sino que lo hizo más robusto frente a futuros crecimientos. La transición de un único despliegue a un sistema replicado garantizó que, ante el fallo de un nodo, el servicio continuara operando sin interrupciones. Esta cultura de "prevención de incendios" redujo significativamente los tickets de soporte relacionados con el rendimiento de la aplicación.

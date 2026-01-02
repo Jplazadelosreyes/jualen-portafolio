@@ -1,0 +1,143 @@
+<script>
+    import mermaid from 'mermaid';
+
+    const renderMermaid = async () => {
+        const selectors = [
+            'pre[data-language="mermaid"]',
+            'code[data-language="mermaid"]',
+            '.language-mermaid',
+            'pre.mermaid'
+        ];
+        
+        const blocks = document.querySelectorAll(selectors.join(', '));
+        
+        if (blocks.length > 0) {
+            // Inicializamos mermaid con tema base para usar variables CSS
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'base',
+                securityLevel: 'loose',
+                fontFamily: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif',
+                fontSize: 20,
+                themeVariables: {
+                    fontSize: '20px',
+                    primaryColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-bg').trim(),
+                    primaryTextColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-text').trim(),
+                    primaryBorderColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-border').trim(),
+                    lineColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-line-color').trim(),
+                    secondaryColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-bg').trim(),
+                    tertiaryColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-bg').trim(),
+                    mainBkg: 'transparent',
+                    nodeTextColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-text').trim(),
+                    textColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-text').trim(),
+                    titleColor: getComputedStyle(document.documentElement).getPropertyValue('--mermaid-node-text').trim(),
+                }
+            });
+
+            for (const block of blocks) {
+                let targetElement = block;
+                
+                // Si el bloque es un CODE dentro de un PRE, el objetivo es el PRE
+                if (block.tagName === 'CODE' && block.parentElement?.tagName === 'PRE') {
+                    targetElement = block.parentElement;
+                }
+                
+                if (targetElement.classList.contains('mermaid-processed') && !targetElement.dataset.mermaidCode) continue;
+                
+                // Guardamos el código original si no lo tenemos
+                if (!targetElement.dataset.mermaidCode) {
+                    targetElement.dataset.mermaidCode = (targetElement as HTMLElement).innerText.trim();
+                }
+                
+                const code = targetElement.dataset.mermaidCode;
+                if (!code) continue;
+                
+                // Crear contenedor
+                const container = document.createElement('div');
+                container.className = 'mermaid-container';
+                
+                const id = 'mermaid-' + Math.random().toString(36).substr(2, 9);
+                try {
+                    const result = await mermaid.render(id, code);
+                    const svg = typeof result === 'string' ? result : (result as any).svg;
+                    
+                    container.innerHTML = svg;
+                    
+                    // Si ya habíamos procesado esto, buscamos el contenedor anterior para reemplazarlo
+                    const existingContainer = targetElement.nextElementSibling;
+                    if (existingContainer && existingContainer.classList.contains('mermaid-container')) {
+                        existingContainer.replaceWith(container);
+                    } else {
+                        targetElement.classList.add('mermaid-processed');
+                        targetElement.style.display = 'none'; // Ocultamos el original
+                        targetElement.after(container);
+                    }
+                    
+                    if ((result as any).bindFunctions) {
+                        (result as any).bindFunctions(container);
+                    }
+                } catch (error) {
+                    console.error('Mermaid render error:', error);
+                }
+            }
+        }
+    };
+
+    document.addEventListener('astro:page-load', renderMermaid);
+    
+    // Ejecutar también en la carga inicial
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        renderMermaid();
+    }
+
+    // Observar cambios de tema para RE-RENDERIZAR
+    const themeObserver = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+        if (mutation.attributeName === 'class') {
+            renderMermaid();
+            break;
+        }
+    }
+});
+    themeObserver.observe(document.documentElement, { attributes: true });
+</script>
+
+<style is:global>
+    .mermaid-container {
+        display: flex;
+        justify-content: center;
+        margin: 2rem 0;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .mermaid {
+        background: transparent !important;
+    }
+    /* Forzar colores de texto desde CSS para máxima compatibilidad */
+    .mermaid text, 
+    .mermaid .node label, 
+    .mermaid .edgeLabel, 
+    .mermaid .cluster-label,
+    .mermaid .label text {
+        fill: var(--mermaid-node-text) !important;
+        color: var(--mermaid-node-text) !important;
+        font-size: 20px !important; /* Forzamos un tamaño de fuente mayor */
+        font-weight: 500 !important;
+    }
+    /* Estilos de líneas y formas */
+    .mermaid .node rect,
+    .mermaid .node circle,
+    .mermaid .node ellipse,
+    .mermaid .node polygon,
+    .mermaid .node path {
+        fill: var(--mermaid-node-bg) !important;
+        stroke: var(--mermaid-node-border) !important;
+        stroke-width: 2px !important; /* Bordes un poco más gruesos para que se noten */
+    }
+    .mermaid .path {
+        stroke: var(--mermaid-line-color) !important;
+    }
+    .mermaid .arrowheadPath {
+        fill: var(--mermaid-line-color) !important;
+    }
+</style>

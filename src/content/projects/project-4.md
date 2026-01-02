@@ -1,61 +1,50 @@
 ---
-title: 'NeuralPlaylist - AI Generated Music Recommendations'
-description: Leveraging advanced algorithms and machine learning, NeuralPlaylist crafts personalized music recommendations based on users' preferences, moods, and even biometric data.
-publishDate: 'Oct 19 2023'
+title: Ingesta Masiva y Automatización de Infraestructura (Big Data)
+description: Desarrollo de un motor de orquestación en Bash para el procesamiento y carga automatizada de más de 1.000.000 de documentos legales y técnicos.
+publishDate: 'Jun 28 2025'
+isFeatured: true
 seo:
   image:
-    src: '../../assets/images/project-4.jpg'
+    src: '../../assets/images/project-7.jpg'
 ---
 
-![Project preview](../../assets/images/project-4.jpg)
+![Automatización de Sistemas y Shell Scripting](../../assets/images/project-7.jpg)
 
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+**Nota:** Este caso de estudio documenta una solución de ingeniería de sistemas diseñada para manejar volúmenes de datos a escala industrial mediante automatización de bajo nivel.
 
-**Project Overview:**
-NeuralPlaylist is a cutting-edge web application that redefines music discovery through the power of artificial intelligence. Leveraging advanced algorithms and machine learning, NeuralPlaylist crafts personalized music recommendations based on users' preferences, moods, and even biometric data.
+## Resumen del Proyecto
 
-## Objectives
+La integración de grandes clientes corporativos en la plataforma la aplicación de control de contratistas implicaba el desafío de cargar y procesar más de un millón de documentos físicos y registros lógicos de forma simultánea. Realizar este proceso a través de la interfaz web era inviable por estabilidad y tiempo, mientras que las cargas manuales en base de datos carecían de la validación necesaria de los microservicios.
 
-1. Develop an intuitive and user-friendly web application that utilizes AI to curate personalized music playlists for users.
-2. Implement machine learning models that analyze user behavior, preferences, and physiological responses to create dynamic and context-aware music recommendations.
-3. Provide an immersive and interactive platform that enhances the music listening experience and introduces users to new genres and artists.
+Desarrollé una herramienta de orquestación personalizada en **Bash** que actúa como un motor de ingesta masiva, replicando el comportamiento de la aplicación de forma acelerada y segura directamente desde la terminal del servidor.
 
-## Features
+## Objetivos
 
-1. **Biometric Mood Analysis:**
+1. Automatizar la migración de datos masivos para nuevos clientes, reduciendo el tiempo de implementación de semanas a horas.
+2. Garantizar la integridad de la información mediante validaciones cruzadas entre archivos CSV, Base de Datos y APIs.
+3. Crear un proceso resiliente capaz de manejar fallos de red y errores de archivos sin detener la operación global.
 
-- NeuralPlaylist incorporates biometric data analysis to understand users' moods and emotional states.
-- The AI algorithms use facial recognition and heart rate data to curate playlists that match users' current emotional states.
+## Características Técnicas
 
-2. **Personalized Playlists:**
+1. **Orquestación de Sistemas (CLI):**
+- Implementé un flujo de trabajo que integra herramientas como `psql` para consultas directas, `curl` para comunicación con APIs REST y `jq` para el procesamiento de respuestas JSON en tiempo real.
 
-- Users receive dynamic and highly personalized playlists based on their music history, preferences, and contextual factors.
-- NeuralPlaylist adapts to users' evolving tastes, introducing them to new genres and artists that align with their musical journey.
+2. **Lógica de Resiliencia (Fault Tolerance):**
+- El script incluye un sistema de manejo de reintentos automáticos (`max_intentos`) y validación de carga física versus carga lógica, asegurando que cada documento sea procesado correctamente antes de pasar al siguiente.
 
-3. **Context-Aware Recommendations:**
+3. **Adaptación de Datos Dinámica:**
+- Desarrollé funciones de extracción y transformación que normalizan la información del cliente (RUTs, IDs, fechas) para que sean compatibles con la arquitectura interna del sistema, detectando y limpiando "datos basura" en el proceso.
 
-- The application takes into account contextual factors such as time of day, weather, and location to tailor music recommendations.
-- Users receive playlists suited for specific occasions, moods, and environments.
+4. **Monitoreo y Reporte de Resultados:**
+- El sistema genera logs detallados y un archivo de resultados CSV al finalizar, permitiendo una auditoría inmediata de qué registros fueron exitosos y cuáles requieren atención manual.
 
-4. **Collaborative Playlists:**
+## Stack Tecnológico
 
-- NeuralPlaylist encourages social interaction by allowing users to create and share collaborative playlists with friends.
-- Friends can contribute to the playlist, creating a shared musical experience that adapts to the collective preferences of the group.
+- **Lenguaje:** Bash Scripting (GNU/Linux).
+- **Procesamiento:** jq (JSON Processor), awk, sed.
+- **Base de Datos:** PostgreSQL (Interacción directa mediante CLI).
+- **Protocolos:** REST APIs / cURL con autenticación Bearer.
 
-5. **Real-Time Feedback Integration:**
+## Resultado
 
-- Users can provide real-time feedback on song selections, allowing the AI to continuously refine recommendations.
-- The system learns from user interactions to enhance the accuracy of future music suggestions.
-
-## Technology Stack
-
-- Frontend: Vue.js for a dynamic and responsive user interface.
-- Backend: Flask for handling server-side logic and API integration.
-- Database: MongoDB for efficient storage and retrieval of user and music data.
-- AI Integration: PyTorch for developing machine learning models for music recommendation and biometric analysis.
-
-## Outcome
-
-NeuralPlaylist has redefined the music listening experience by harnessing the power of AI to provide users with hyper-personalized and context-aware playlists. The application not only adapts to users' musical preferences but also introduces them to new and exciting musical journeys based on their emotions and surroundings.
-
-**Note:** This case study is entirely fictional and created for the purpose of showcasing [Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/).
+Este motor de automatización se convirtió en una pieza fundamental de nuestra infraestructura. Logramos procesar con éxito cargas de **1M+ de documentos**, garantizando que cada archivo estuviera correctamente validado y vinculado a su trabajador o empresa correspondiente. La solución no solo eliminó el error humano en las migraciones de datos, sino que dotó a la empresa de una capacidad técnica superior para abordar clientes de gran escala que la competencia no podía gestionar con la misma agilidad.

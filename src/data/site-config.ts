@@ -3,30 +3,30 @@ import hero from '../assets/images/hero.jpg';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
-    website: 'https://example.com',
+    website: 'https://github.com/Jplazadelosreyes',
     avatar: {
         src: avatar,
-        alt: 'Ethan Donovan'
+        alt: 'Juan Plaza de los Reyes'
     },
-    title: 'Dante',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+    title: 'Juan Plaza de los Reyes',
+    subtitle: 'Product Engineer | Full Stack & DevOps',
+    description: 'Portafolio profesional de Juan Plaza de los Reyes, especialista en desarrollo de producto y sistemas escalables en Barcelona.',
     image: {
         src: '/dante-preview.jpg',
-        alt: 'Dante - Astro.js and Tailwind CSS theme'
+        alt: 'Juan Plaza de los Reyes - Portafolio'
     },
     headerNavLinks: [
         {
-            text: 'Home',
+            text: 'Inicio',
             href: '/'
         },
         {
-            text: 'Projects',
+            text: 'Proyectos',
             href: '/projects'
         },
         {
-            text: 'Blog',
-            href: '/blog'
+            text: 'Stacks',
+            href: '/stacks'
         },
         {
             text: 'Tags',
@@ -35,59 +35,58 @@ const siteConfig: SiteConfig = {
     ],
     footerNavLinks: [
         {
-            text: 'About',
+            text: 'Sobre mí',
             href: '/about'
         },
         {
-            text: 'Contact',
+            text: 'Contacto',
             href: '/contact'
         },
         {
-            text: 'Terms',
+            text: 'Términos',
             href: '/terms'
-        },
-        {
-            text: 'Download theme',
-            href: 'https://github.com/JustGoodUI/dante-astro-theme'
         }
     ],
     socialLinks: [
         {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
+            text: 'LinkedIn',
+            href: 'https://www.linkedin.com/in/juan-plaza-de-los-reyes-014991133/'
         },
         {
-            text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/'
+            text: 'GitHub',
+            href: 'https://github.com/Jplazadelosreyes'
         }
     ],
     hero: {
-        title: 'Hi There & Welcome to My Corner of the Web!',
-        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence.\nMy approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products.\nI have a profound appreciation for top-notch software, visual design, and the principles of product-led growth.\n\nFeel free to explore some of my coding endeavors on [GitHub](https://github.com/JustGoodUI/dante-astro-theme) or follow me on [Twitter/X](https://twitter.com/justgoodui).",
+        title: '¡Hola! Soy Juan Plaza de los Reyes',
+        text: "Desarrollador **Full Stack & DevOps** residente en Barcelona. \n\n" +
+            "Me especializo en transformar problemas complejos en soluciones robustas y escalables, con un enfoque total en el **éxito del negocio**. Experto en gestionar situaciones críticas y optimizar recursos para entregar resultados bajo presión. \n\n" +
+            "Firme creyente en el **talento colectivo**, aporto una mentalidad de 'equipo como familia' donde la responsabilidad es compartida y el aprendizaje es constante. \n\n" +
+            "Mi compromiso es convertir requerimientos urgentes en arquitectura técnica sólida, bajo una ética profesional donde **el objetivo común siempre es la prioridad**.",
         image: {
             src: hero,
-            alt: 'A person sitting at a desk in front of a computer'
+            alt: 'Juan Plaza de los Reyes - Full Stack & DevOps'
         },
         actions: [
             {
-                text: 'Get in Touch',
+                text: 'Contactar',
                 href: '/contact'
+            },
+            {
+                text: 'Ver Proyectos',
+                href: '/projects'
             }
         ]
     },
     subscribe: {
-        enabled: true,
-        title: 'Subscribe to Dante Newsletter',
-        text: 'One update per week. All the latest posts directly in your inbox.',
+        enabled: false,
+        title: 'Suscríbete',
+        text: 'Actualizaciones sobre tecnología y arquitectura.',
         form: {
             action: '#'
         }
     },
-    postsPerPage: 8,
+    stacksPerPage: 8,
     projectsPerPage: 8
 };
 
