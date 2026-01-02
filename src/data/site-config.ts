@@ -18,33 +18,33 @@ const siteConfig: SiteConfig = {
     headerNavLinks: [
         {
             text: 'Inicio',
-            href: ''
+            href: '/'
         },
         {
             text: 'Proyectos',
-            href: 'projects'
+            href: '/projects'
         },
         {
             text: 'Stacks',
-            href: 'stacks'
+            href: '/stacks'
         },
         {
             text: 'Tags',
-            href: 'tags'
+            href: '/tags'
         }
     ],
     footerNavLinks: [
         {
             text: 'Sobre mí',
-            href: 'about'
+            href: '/about'
         },
         {
             text: 'Contacto',
-            href: 'contact'
+            href: '/contact'
         },
         {
             text: 'Términos',
-            href: 'terms'
+            href: '/terms'
         }
     ],
     socialLinks: [
@@ -70,11 +70,11 @@ const siteConfig: SiteConfig = {
         actions: [
             {
                 text: 'Contactar',
-                href: 'contact'
+                href: '/contact'
             },
             {
                 text: 'Ver Proyectos',
-                href: 'projects'
+                href: '/projects'
             }
         ]
     },
