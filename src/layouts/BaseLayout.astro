@@ -9,31 +9,40 @@ import Mermaid from '../components/Mermaid.astro';
 export type Props = HeadProps & { showHeader?: boolean };
 
 const { showHeader = true, ...head } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
 <html lang="en" class="wrap-break-words antialiased">
-    <head>
-        <BaseHead {...head} />
-        <script>
-            if (localStorage.theme === 'dark') {
+<head>
+    <BaseHead {...head} />
+    <script is:inline>
+        // Usamos una función autoejecutable para evitar conflictos de variables
+        (function() {
+            const theme = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+            if (theme === 'dark') {
                 document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
             }
-        </script>
-        <ClientRouter />
-        <script is:inline src="/theme-toggle.js"></script>
-    </head>
-    <body class="bg-main text-main">
-        <div class="flex min-h-screen flex-col px-4 md:px-8">
-            <Nav />
-            {showHeader && (
-                <Header />
-            )}
-            <main class="mx-auto w-full max-w-3xl grow">
-                <slot />
-            </main>
-            <Footer />
-        </div>
-        <Mermaid />
-    </body>
+        })();
+    </script>
+    <ClientRouter />
+    <script is:inline src={`${baseUrl}/theme-toggle.js`}></script>
+</head>
+<body class="bg-main text-main">
+<div class="flex min-h-screen flex-col px-4 md:px-8">
+<Nav />
+{showHeader && (
+    <Header />
+    )}
+<main class="mx-auto w-full max-w-3xl grow">
+<slot />
+</main>
+<Footer />
+</div>
+<Mermaid />
+</body>
 </html>
