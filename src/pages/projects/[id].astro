@@ -25,6 +25,7 @@ type Props = {
 
 const { project, prevProject, nextProject } = Astro.props;
 const { title, description, seo } = project.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { Content } = await render(project);
 ---
 
