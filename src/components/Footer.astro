@@ -4,17 +4,23 @@ import siteConfig from '../data/site-config';
 const socialLinks = siteConfig.socialLinks ?? [];
 const navLinks = siteConfig.footerNavLinks ?? [];
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <footer class="mx-auto w-full max-w-3xl pt-12 pb-10 sm:pt-24 sm:pb-14">
     {
         navLinks.length > 0 && (
             <nav class="mb-4 flex flex-wrap gap-x-6 gap-y-1" aria-label="Footer navigation">
-                {navLinks.map((link) => (
-                    <a class="font-serif hover:underline hover:underline-offset-2" href={link.href}>
-                        {link.text}
-                    </a>
-                ))}
+                {navLinks.map((link) => {
+                    const normalizedHref = link.href.startsWith('/') && !link.href.startsWith(base) 
+                        ? `${base}${link.href}` 
+                        : link.href;
+                    return (
+                        <a class="font-serif hover:underline hover:underline-offset-2" href={normalizedHref}>
+                            {link.text}
+                        </a>
+                    );
+                })}
             </nav>
         )
     }
@@ -42,7 +48,7 @@ const currentYear = new Date().getFullYear();
         }
         <p class="text-sm">
             &copy; {currentYear}
-            <a class="hover:underline hover:underline-offset-2" href="/">{siteConfig.title}</a>. All rights reserved.
+            <a class="hover:underline hover:underline-offset-2" href={`${base}/`}>{siteConfig.title}</a>. All rights reserved.
         </p>
     </div>
 </footer>
